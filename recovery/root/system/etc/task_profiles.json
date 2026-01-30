@@ -435,7 +435,7 @@
           "Params":
           {
             "Controller": "cpuset",
-            "Path": "foreground"
+            "Path": ""
           }
         }
       ]

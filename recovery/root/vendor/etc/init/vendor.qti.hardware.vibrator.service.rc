@@ -1,0 +1,22 @@
+# Copyright (C) 2025 The Android Open Source Project
+# Copyright (C) 2026 chickendrop89
+# SPDX-License-Identifier: Apache-2.0
+
+on boot
+    chown system system /sys/class/qcom-haptics/primitive_duration
+    chmod 0600 /sys/class/qcom-haptics/primitive_duration
+
+    wait /sys/class/leds/vibrator
+    write /sys/class/leds/vibrator/trigger "transient"
+
+    start vendor.qti.vibrator
+
+service vendor.qti.vibrator /vendor/bin/hw/vendor.qti.hardware.vibrator.service
+    user root
+    group root system input audio
+    setenv LD_LIBRARY_PATH /vendor/lib64:/system/lib64:/vendor/odm/lib64:/bin
+    seclabel u:r:recovery:s0
+    capabilities SYS_NICE
+    priority -5
+    ioprio rt 5
+    disabled

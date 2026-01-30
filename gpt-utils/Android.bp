@@ -1,5 +1,5 @@
 cc_library {
-    name: "libgptutils.volcano",
+    name: "libgptutils.blair",
     vendor: true,
     recovery_available: true,
     export_include_dirs: ["."],

@@ -2,6 +2,6 @@
 # Copyright (C) 2026 chickendrop89
 # SPDX-License-Identifier: GPL-3.0-only
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_amethyst.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_spring.mk
 
-COMMON_LUNCH_CHOICES := twrp_amethyst-ap2a-eng
+COMMON_LUNCH_CHOICES := twrp_spring-ap2a-eng

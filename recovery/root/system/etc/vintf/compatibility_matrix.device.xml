@@ -8,12 +8,15 @@
         device/xiaomi/missi/device_framework_compatibility_matrix/sensor_tools/vendor.xiaomi.sensor.citsensorservice@1.1_compatibility_matrix.xml
         device/xiaomi/missi/device_framework_compatibility_matrix/sensor_tools/vendor.xiaomi.sensor.citsensorservice@2.0_compatibility_matrix.xml
         vendor/qcom/opensource/commonsys/audio/ozo/vendor_framework_compatibility_matrix.xml
+        device/xiaomi/missi/device_framework_compatibility_matrix/codec2/vendor_framework_compatibility_matrix.xml
         device/xiaomi/missi/device_framework_compatibility_matrix/mitrustedui/vendor_framework_compatibility_matrix.xml
         device/xiaomi/missi/device_framework_compatibility_matrix/connectivity_tools/vendor.xiaomi.cit.wifi.aidl_compatibility_matrix.xml
         device/xiaomi/missi/device_framework_compatibility_matrix/keyboard/vendor.xiaomi.hardware.keyboardnanoapp@1.0_compatibility_matrix.xml
         device/xiaomi/missi/device_framework_compatibility_matrix/keyboard/vendor.xiaomi.hardware.keyboardnanoapp_aidl_compatibility_matrix.xml
         device/xiaomi/missi/device_framework_compatibility_matrix/batteryantiaging/vendor_framework_compatibility_matrix.xml
+        vendor/xiaomi/proprietary/mivifwk/interfaces/bgservice/vendor_framework_compatibility_matrix.xml
         vendor/xiaomi/proprietary/mivifwk/interfaces/aidlbgservice/vendor_framework_compatibility_matrix.xml
+        vendor/xiaomi/proprietary/mivifwk/interfaces/postprocservice/vendor_framework_compatibility_matrix.xml
         vendor/xiaomi/proprietary/mivifwk/interfaces/campostproc/vendor_framework_compatibility_matrix.xml
         device/xiaomi/missi/device_framework_compatibility_matrix/fingerprint/vendor_framework_compatibility_matrix.xml
         device/xiaomi/missi/device_framework_compatibility_matrix/miAEK/vendor_framework_compatibility_matrix.xml
@@ -110,6 +113,21 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.media.c2</name>
+        <version>1.2</version>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>xiaomi</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.media.c2</name>
+        <interface>
+            <name>IComponentStore</name>
+            <instance>xiaomi</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.media.c2</name>
         <version>1.0</version>
         <interface>
             <name>IComponentStore</name>
@@ -172,9 +190,8 @@
             <instance>wigigp2p</instance>
         </interface>
     </hal>
-    <hal format="aidl">
+    <hal format="aidl" optional="true">
         <name>android.se.omapi</name>
-        <version>1</version>
         <interface>
             <name>ISecureElementService</name>
             <instance>default</instance>
@@ -505,6 +522,13 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.bluetooth_fmd</name>
+        <interface>
+            <name>IBtFmd</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.bluetooth_sar</name>
         <version>1.0-1</version>
@@ -577,6 +601,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.qti.hardware.camera.offlinecamera</name>
+        <version>1-2</version>
         <interface>
             <name>IOfflineCameraService</name>
             <instance>default</instance>
@@ -585,6 +610,13 @@
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.camera.postproc</name>
         <version>1.0</version>
+        <interface>
+            <name>IPostProcService</name>
+            <instance>camerapostprocservice</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.camera.postproc</name>
         <interface>
             <name>IPostProcService</name>
             <instance>camerapostprocservice</instance>
@@ -948,6 +980,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.qti.hardware.paleventnotifier</name>
+        <version>1-2</version>
         <interface>
             <name>IPALEventNotifier</name>
             <instance>default</instance>
@@ -985,6 +1018,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.qti.hardware.qasr</name>
+        <version>1-2</version>
         <interface>
             <name>IQasr</name>
             <instance>default</instance>
@@ -1209,7 +1243,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.qti.hardware.radio.qtiradio</name>
-        <version>1-14</version>
+        <version>1-16</version>
         <interface>
             <name>IQtiRadioStable</name>
             <instance>slot1</instance>
@@ -1749,6 +1783,34 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.sec.cloudagent</name>
+        <interface>
+            <name>ICloudAgent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.sec.datamanager</name>
+        <interface>
+            <name>IDataManager</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.sec.featuremanager</name>
+        <interface>
+            <name>IFeatureManager</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.sec.provisioningmanager</name>
+        <interface>
+            <name>IProvisioningManager</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.sla.service</name>
         <version>1.0</version>
@@ -1838,6 +1900,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.xiaomi.cit.wifi</name>
+        <version>1-2</version>
         <interface>
             <name>IWifiService</name>
             <instance>default</instance>
@@ -1853,6 +1916,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.xiaomi.cit.wifi</name>
+        <version>1-2</version>
         <interface>
             <name>IWifiService</name>
             <instance>default</instance>
@@ -1891,6 +1955,14 @@
         <name>vendor.xiaomi.hardware.batteryantiaging</name>
         <interface>
             <name>IBatteryAntiAging</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.xiaomi.hardware.bgservice</name>
+        <version>1.0</version>
+        <interface>
+            <name>IBGService</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -2153,6 +2225,13 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.miperf2</name>
+        <interface>
+            <name>IMiPerf</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.xiaomi.hardware.misight</name>
         <interface>
             <name>ILogMgr</name>
@@ -2233,6 +2312,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.mtkblackbox</name>
+        <version>1-2</version>
+        <interface>
+            <name>IMtkblackboxImpl</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.xiaomi.hardware.otrpagent</name>
         <version>1.0</version>
@@ -2246,6 +2333,13 @@
         <version>2.0</version>
         <interface>
             <name>IOTrPAgent</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.postprocservice</name>
+        <interface>
+            <name>IPostProcService</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -2304,7 +2398,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>vendor.xiaomi.hardware.videoservice</name>
-        <version>1-5</version>
+        <version>1-6</version>
         <interface>
             <name>IVideoService</name>
             <instance>default</instance>

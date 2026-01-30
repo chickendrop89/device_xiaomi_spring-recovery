@@ -8,7 +8,7 @@
 MODULES_DIR="/vendor/lib/modules"
 QCOM_BATTERY_DIR="/sys/class/qcom-battery"
 
-DRIVERS="panel_event_notifier xiaomi_touch goodix_core focaltech_touch"
+DRIVERS="xiaomi_tp nt36xxx_spi usbtouchscreen focaltech_spi nxp-nci leds-qpnp-vibrator-ldo"
 TOUCH_SVC_STATUS=$(getprop init.svc.touchfeature-service)
 
 ( # For batterysecret (async)

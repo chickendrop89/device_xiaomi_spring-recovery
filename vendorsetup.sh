@@ -4,7 +4,7 @@
 # Copyright (C) 2026 chickendrop89
 # SPDX-License-Identifier: GPL-3.0-only
 
-FDEVICE="amethyst"
+FDEVICE="spring"
 
 fox_get_target_device() {
     local chkdev=""
@@ -35,7 +35,7 @@ fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ];
   then
-    export TARGET_DEVICE_ALT="amethyst"
+    export TARGET_DEVICE_ALT="spring"
 
     # Binaries & Tools
     export FOX_USE_BUSYBOX_BINARY=1

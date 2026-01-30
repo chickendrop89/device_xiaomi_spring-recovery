@@ -13,32 +13,22 @@ on property:vendor.sys.listeners.registered=true
     start vendor.keymint-qti
     start vendor.gatekeeper-qti
 
-# Runs during post-fs-data
-on property:ro.crypto.state=encrypted && property:twrp.firmware.mounted=true
+# Runs before /data is mounted
+on fs
     start vendor.prepdecrypt
-
-# Runs after vendor.prepdecrypt exits
-on property:crypto.ready=1
-    start vendor.keymint-strongbox
-    start vendor.weaver
-    start vendor.secure_element
 
 # Runs after decryption
 on property:twrp.all.users.decrypted=true
     setprop crypto.ready 0
 
     stop keystore2
-    stop vendor.secure_element
-    stop se_omapi
-    stop vendor.weaver
-    stop vendor.keymint-strongbox
     stop vendor.keymint-qti
     stop vendor.qseecomd
     stop vendor.ssgtzd
     stop vendor.gatekeeper-qti
 
 # Runs after decryption, and running touchscreen service 
-on property:init.svc.vendor.secure_element=running && property:init.svc.touchfeature-service=running
+on property:init.svc.vendor.gatekeeper-qti=running && property:init.svc.touchfeature-service=running
     exec u:r:recovery:s0 -- /system/bin/sleep 3
 
     umount /vendor/firmware_mnt

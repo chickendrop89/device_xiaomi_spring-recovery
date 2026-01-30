@@ -2,7 +2,7 @@
 # Copyright (C) 2026 chickendrop89
 # SPDX-License-Identifier: GPL-3.0-only
 
-DEVICE_PATH := device/xiaomi/amethyst
+DEVICE_PATH := device/xiaomi/spring
 
 # Configure Virtual A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression_with_xor.mk)
@@ -17,12 +17,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # OTA device(s)
-TARGET_OTA_ASSERT_DEVICE := amethyst
+TARGET_OTA_ASSERT_DEVICE := spring
 
 # Boot control, Kernel prebuilts
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl-qti.recovery \
-    vendor_kernel_prebuilts
+    android.hardware.boot@1.2-impl-qti.recovery
 
 # FastbootD support
 PRODUCT_PACKAGES += \
@@ -52,21 +51,18 @@ PRODUCT_COPY_FILES += \
 
 # API
 PRODUCT_SHIPPING_API_LEVEL  := 34
-PRODUCT_TARGET_VNDK_VERSION := 34
+PRODUCT_TARGET_VNDK_VERSION := 35
 BOARD_SHIPPING_API_LEVEL := 34
 SHIPPING_API_LEVEL := 34
 
 # Display Size & Density
-TARGET_SCREEN_HEIGHT  := 2712
-TARGET_SCREEN_DENSITY := 480
-TARGET_SCREEN_WIDTH   := 1220
+TARGET_SCREEN_HEIGHT  := 2340
+TARGET_SCREEN_DENSITY := 450
+TARGET_SCREEN_WIDTH   := 1080
 
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION  := false
-
-# No Micro SDCard
-PRODUCT_CHARACTERISTICS := nosdcard
 
 # Virtual A/B
 AB_OTA_UPDATER := true
@@ -126,26 +122,27 @@ TW_FRAMERATE            := 120
 # Blacklist Goodix fingerprint. There's no reason to include this input in recovery
 TW_INPUT_BLACKLIST := "uinput-goodix"
 
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone2/temp"
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone14/temp"
 TW_BRIGHTNESS_PATH      := "/sys/class/backlight/panel0-backlight/brightness"
 
-# Vendor modules required for the recovery to function properly
-TW_LOAD_VENDOR_MODULES  += "panel_event_notifier.ko xiaomi_touch.ko goodix_core.ko
-TW_LOAD_VENDOR_MODULES  += focaltech_touch.ko adsp_loader_dlkm.ko
-TW_LOAD_VENDOR_MODULES  += qti_battery_charger.ko camera.ko stm_st54se_gpio.ko"
+TW_LOAD_VENDOR_MODULES  += "adsp_loader_dlkm.ko
+TW_LOAD_VENDOR_MODULES  += qpnp-smb5-main.ko usbpd.ko gauge-iio.ko
+TW_LOAD_VENDOR_MODULES  += bq25960_charger.ko bq25960h_charger.ko sc853x_charger.ko
+TW_LOAD_VENDOR_MODULES  += xm_smart_chg.ko lc_charger_sysfs-main.ko
+TW_LOAD_VENDOR_MODULES  += leds-qpnp-vibrator-ldo.ko camera.ko"
+TW_LOAD_VENDOR_MODULES  += focaltech_spi.ko nt36xxx_spi.ko usbtouchscreen.ko xiaomi_tp.ko"
 
 TW_EXCLUDE_DEFAULT_USB_INIT   := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/default"
 TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
 
 # TWRP - Crypto
 TW_INCLUDE_CRYPTO               := true
 TW_INCLUDE_CRYPTO_FBE           := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_INCLUDE_OMAPI                := true
 BOARD_USES_QCOM_FBE_DECRYPTION  := true
 
 PLATFORM_VERSION                := 99.87.36
