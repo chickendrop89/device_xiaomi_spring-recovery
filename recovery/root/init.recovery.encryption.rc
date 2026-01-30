@@ -1,9 +1,6 @@
 # Copyright (C) 2026 chickendrop89
 # SPDX-License-Identifier: GPL-3.0-only
 
-on property:init.svc.boot-hal-1-2=running
-    setprop prepdecrypt.setpatch true
-
 on init
     start vendor.qseecomd
 
@@ -12,10 +9,6 @@ on property:vendor.sys.listeners.registered=true
     start vendor.ssgtzd
     start vendor.keymint-qti
     start vendor.gatekeeper-qti
-
-# Runs before /data is mounted
-on fs
-    start vendor.prepdecrypt
 
 # Runs after decryption
 on property:twrp.all.users.decrypted=true
