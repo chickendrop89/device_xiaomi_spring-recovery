@@ -129,7 +129,7 @@ TW_LOAD_VENDOR_MODULES  += "adsp_loader_dlkm.ko
 TW_LOAD_VENDOR_MODULES  += qpnp-smb5-main.ko usbpd.ko gauge-iio.ko
 TW_LOAD_VENDOR_MODULES  += bq25960_charger.ko bq25960h_charger.ko sc853x_charger.ko
 TW_LOAD_VENDOR_MODULES  += xm_smart_chg.ko lc_charger_sysfs-main.ko
-TW_LOAD_VENDOR_MODULES  += leds-qpnp-vibrator-ldo.ko camera.ko"
+TW_LOAD_VENDOR_MODULES  += leds-qpnp-vibrator-ldo.ko camera.ko
 TW_LOAD_VENDOR_MODULES  += focaltech_spi.ko nt36xxx_spi.ko usbtouchscreen.ko xiaomi_tp.ko"
 
 TW_EXCLUDE_DEFAULT_USB_INIT   := true
