@@ -3,12 +3,12 @@
 # Copyright (C) 2026 chickendrop89
 # SPDX-License-Identifier: GPL-3.0-only
 
-# Load batterysecret, and touch drivers/services if they didn't load properly
+# Load batterysecret, and recovery drivers/services if they didn't load properly
 
 MODULES_DIR="/vendor/lib/modules"
 QCOM_BATTERY_DIR="/sys/class/qcom-battery"
 
-DRIVERS="xiaomi_tp nt36xxx_spi usbtouchscreen focaltech_spi nxp-nci leds-qpnp-vibrator-ldo"
+DRIVERS="xiaomi_tp nt36xxx_spi focaltech_spi leds-qpnp-vibrator-ldo qpnp-smb5-main"
 TOUCH_SVC_STATUS=$(getprop init.svc.touchfeature-service)
 
 ( # For batterysecret (async)
