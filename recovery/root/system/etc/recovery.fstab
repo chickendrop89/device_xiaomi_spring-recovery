@@ -18,8 +18,6 @@ odm                                                     /odm                   e
 odm                                                     /odm                   ext4    ro,barrier=1,discard                                 wait,slotselect,avb=vbmeta,logical
 mi_ext                                                  /mi_ext                erofs   ro                                                   wait,slotselect,avb=vbmeta,logical,nofail
 mi_ext                                                  /mi_ext                ext4    ro,barrier=1,discard                                 wait,slotselect,avb=vbmeta,logical,nofail
-cust                                                    /cust                  erofs   ro,                                                  wait,slotselect,avb=vbmeta,logical,nofail
-cust                                                    /cust                  ext4    ro,barrier=1,discard                                 wait,slotselect,avb=vbmeta,logical,nofail
 
 vendor_dlkm                                             /vendor_dlkm           erofs   ro                                                   wait,slotselect,avb=vbmeta,logical
 vendor_dlkm                                             /vendor_dlkm           ext4    ro,barrier=1,discard                                 wait,slotselect,avb=vbmeta,logical
