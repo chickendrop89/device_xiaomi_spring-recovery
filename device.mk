@@ -21,7 +21,8 @@ TARGET_OTA_ASSERT_DEVICE := spring
 
 # Boot control, Kernel prebuilts
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl-qti.recovery
+    android.hardware.boot@1.2-impl-qti.recovery \
+    vendor_kernel_prebuilts
 
 # FastbootD support
 PRODUCT_PACKAGES += \
