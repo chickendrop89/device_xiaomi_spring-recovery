@@ -20,19 +20,19 @@ Dimensions              | 169.5 x 80.5 x 8.4 mm
 Display                 | 6.9" FHD+ IPS LCD, 144Hz, 1080x2460
 
 ## Checklist
-- [ ] ADB
-- [ ] Decryption
-- [ ] Touchscreen
-- [ ] FastbootD
-- [ ] Flashing
-- [ ] MTP
-- [ ] Sideload
-- [ ] Backups
-- [ ] Filesystems/Mounts
-- [ ] Slot switch
-- [ ] Haptics
-- [ ] Flashlight
-- [ ] Custom splash
+- [x] ADB
+- [x] Decryption
+- [x] Touchscreen
+- [x] FastbootD
+- [x] Flashing
+- [x] MTP
+- [x] Sideload
+- [x] Backups
+- [x] Filesystems/Mounts
+- [x] Slot switch
+- [x] Haptics
+- [x] Flashlight
+- [x] Custom splash
 
 ## Notes
 This device does not have a eSIM, meaning that instead of using Secure Element/StrongBox for decryption, 
