@@ -22,7 +22,7 @@ OF_FL_PATH1	:= /sys/class/leds/led:torch
 OF_USE_GREEN_LED := 0
 
 # Security (Disables MTP & ADB during password prompt)
-#OF_ADVANCED_SECURITY := 1
+OF_ADVANCED_SECURITY := 1
 
 # HOS & Custom ROMs
 OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
