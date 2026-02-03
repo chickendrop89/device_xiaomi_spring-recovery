@@ -15,7 +15,7 @@ OF_CLOCK_POS := 1 # Left & Right
 OF_OPTIONS_LIST_NUM := 9
 
 # Quick backup (Boot, sensor data)
-OF_QUICK_BACKUP_LIST := /boot;/persist_image
+OF_QUICK_BACKUP_LIST := /boot;/persist_image;
 
 # Flashlight & LEDs
 OF_FL_PATH1	:= /sys/class/leds/led:torch
