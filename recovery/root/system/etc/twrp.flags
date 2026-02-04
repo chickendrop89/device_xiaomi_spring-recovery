@@ -46,6 +46,9 @@
 # Modem/Firmware partitions
 /modem                 vfat    /dev/block/bootdevice/by-name/modem                                flags=display="Modem";slotselect;fsflags="ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait"
 /modem_image           emmc    /dev/block/bootdevice/by-name/modem                                flags=display="Modem";slotselect;backup=1;flashimg=1
+/catecontentfv         emmc    /dev/block/bootdevice/by-name/catecontentfv                        flags=backup=1;subpartitionof=/modem_image
+/catefv                emmc    /dev/block/bootdevice/by-name/catefv                               flags=backup=1;subpartitionof=/modem_image
+/cateloader            emmc    /dev/block/bootdevice/by-name/cateloader                           flags=backup=1;subpartitionof=/modem_image
 /dsp                   ext4    /dev/block/bootdevice/by-name/dsp                                  flags=display="DSP";slotselect;fsflags="ro"
 /dsp_image             emmc    /dev/block/bootdevice/by-name/dsp                                  flags=display="DSP";slotselect;backup=1
 /bluetooth             vfat    /dev/block/bootdevice/by-name/bluetooth                            flags=display="Bluetooth";slotselect;fsflags="ro,shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0 wait"
@@ -56,6 +59,7 @@
 /efs2                  emmc    /dev/block/bootdevice/by-name/modemst2                             flags=backup=1;subpartitionof=/efs1
 /efsc                  emmc    /dev/block/bootdevice/by-name/fsc                                  flags=backup=1;subpartitionof=/efs1
 /efsg                  emmc    /dev/block/bootdevice/by-name/fsg                                  flags=backup=1;subpartitionof=/efs1
+/opconfig              emmc    /dev/block/bootdevice/by-name/opconfig                             flags=backup=1;subpartitionof=/efs1
 
 # VM partitions
 /vm-system             emmc    /dev/block/bootdevice/by-name/vm-system                            flags=display="VM";backup=1;slotselect
@@ -65,10 +69,9 @@
 # DRM / Device key partitions
 /ssd                   emmc    /dev/block/bootdevice/by-name/ssd                                  flags=display="DRM/Security";backup=1
 /secdata               emmc    /dev/block/bootdevice/by-name/secdata                              flags=backup=1;subpartitionof=/ssd
-/keystore              emmc    /dev/block/bootdevice/by-name/keystore                             flags=backup=1;subpartitionof=/ssd
-/opconfig              emmc    /dev/block/bootdevice/by-name/opconfig                             flags=backup=1;subpartitionof=/ssd
-/opcust                emmc    /dev/block/bootdevice/by-name/opcust                               flags=backup=1;subpartitionof=/ssd
 /storsec               emmc    /dev/block/bootdevice/by-name/storsec                              flags=backup=1;subpartitionof=/ssd
+/keystore              emmc    /dev/block/bootdevice/by-name/keystore                             flags=backup=1;subpartitionof=/ssd
+/opcust                emmc    /dev/block/bootdevice/by-name/opcust                               flags=backup=1;subpartitionof=/ssd
 
 # Bootloader/TrustZone/Hypervisor partitions
 /abl                   emmc    /dev/block/bootdevice/by-name/abl                                  flags=display="Bootloader/Trustzone";backup=1;slotselect
@@ -86,9 +89,11 @@
 /imagefv               emmc    /dev/block/bootdevice/by-name/imagefv                              flags=backup=1;slotselect;subpartitionof=/abl
 /pvmfw                 emmc    /dev/block/bootdevice/by-name/pvmfw                                flags=backup=1;slotselect;subpartitionof=/abl
 /multiimgoem           emmc    /dev/block/bootdevice/by-name/multiimgoem                          flags=backup=1;slotselect;subpartitionof=/abl
+/devinfo               emmc    /dev/block/bootdevice/by-name/devinfo                              flags=backup=1;subpartitionof=/abl
 /dpm                   emmc    /dev/block/bootdevice/by-name/dpm                                  flags=backup=1;subpartitionof=/abl
 /cdt                   emmc    /dev/block/bootdevice/by-name/cdt                                  flags=backup=1;subpartitionof=/abl
 /ddr                   emmc    /dev/block/bootdevice/by-name/ddr                                  flags=backup=1;subpartitionof=/abl
+/charger               emmc    /dev/block/bootdevice/by-name/charger                              flags=backup=1;subpartitionof=/abl
 
 # Removable storage
 /storage       	       auto    /data/media/0                  		                              flags=display="Internal Storage";backup=1;usermrf;fsflags="bind,utf8";removable
