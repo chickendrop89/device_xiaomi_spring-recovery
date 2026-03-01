@@ -49,3 +49,6 @@ OF_FORCE_DATA_FORMAT_F2FS := 1
 
 # Force casefolding to avoid /data issues
 OF_FORCE_CASEFOLDING := 1
+
+# Enable the FRP reset addon
+OF_ENABLE_FRP_ADDON := 1
