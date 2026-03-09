@@ -8,7 +8,7 @@
 MODULES_DIR="/vendor/lib/modules"
 QCOM_BATTERY_DIR="/sys/class/qcom-battery"
 
-DRIVERS="xiaomi_tp nt36xxx_spi focaltech_spi leds-qpnp-vibrator-ldo qpnp-smb5-main"
+DRIVERS="xiaomi_tp nt36xxx_spi focaltech_spi"
 TOUCH_SVC_STATUS=$(getprop init.svc.touchfeature-service)
 
 ( # For batterysecret (async)
