@@ -6,6 +6,7 @@ import init.recovery.encryption.rc
 on early-init
     loglevel 7
     write /sys/fs/selinux/enforce 0
+    write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
 
 on early-init
     # UFS Tuning
@@ -19,9 +20,6 @@ on property:twrp.modules.loaded=true && property:twrp.firmware.loaded=
 
     mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /vendor/firmware_mnt ro
     mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist ro
-    
-    restorecon_recursive /vendor/firmware_mnt
-    wait /vendor/firmware_mnt/image/adsp.mdt
 
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
