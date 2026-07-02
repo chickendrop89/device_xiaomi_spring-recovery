@@ -1,0 +1,7 @@
+# Copyright (C) 2026 chickendrop89
+# SPDX-License-Identifier: GPL-3.0-only
+
+# Firmware directory Path
+# Below macro will be read by uevent and path will
+# be added to search path for firmware loading
+firmware_directories /vendor/odm/firmware /odm/firmware
