@@ -17,7 +17,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # OTA device(s)
-TARGET_OTA_ASSERT_DEVICE := spring
+TARGET_OTA_ASSERT_DEVICE := spring,spring_global
 
 # Boot control, Kernel prebuilts
 PRODUCT_PACKAGES += \
